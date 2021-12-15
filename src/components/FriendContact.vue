@@ -15,6 +15,7 @@
         {{ emailAddress }}
       </li>
     </ul>
+    <button @click="$emit('delete', id)">Delete</button>
   </li>
 </template>
 
@@ -44,7 +45,7 @@ export default {
       default: false,
     },
   },
-  emits: ['toggle-favorite'],
+  emits: ["toggle-favorite", 'delete'],
   // emits: {
   //   'toggle-favorite': function(id) {
   //     if(id) {
@@ -57,7 +58,7 @@ export default {
   // },
   data() {
     return {
-      detailsAreVisible: false
+      detailsAreVisible: false,
     };
   },
   methods: {
@@ -65,8 +66,8 @@ export default {
       this.detailsAreVisible = !this.detailsAreVisible;
     },
     toggleFavorite() {
-      this.$emit('toggle-favorite', this.id);
-    },
+      this.$emit("toggle-favorite", this.id);
+    }
   },
 };
 </script>
